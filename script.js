@@ -1,10 +1,15 @@
 /*jshint esversion: 6 */
 'use sctrict';
-randomNumber = Math.ceil(Math.random()*100);
 
-function number (guess){
-guess = prompt('Угадай число от 1 до 100');
-    randomNumber--;
+function bot() {
+  randomNumber = Math.ceil(Math.random()*100);
+
+  return function number (){
+    const guess = prompt('Угадай число от 1 до 100');
+
+    if (guess === null) {
+      return alert ('Игра окончена');
+    }
     if (guess > randomNumber) {
       alert ('Загаданное число меньше.');
       number ();
@@ -20,9 +25,6 @@ guess = prompt('Угадай число от 1 до 100');
     alert ('Введи число!');
     number ();
   }
-  else if (guess === null) {
-    return alert ('Игра окончена');
-  }
+};
 }
-
-number();
+bot()();
